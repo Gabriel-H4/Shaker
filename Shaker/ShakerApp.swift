@@ -11,7 +11,8 @@ import SwiftUI
 struct ShakerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
+                .environmentObject(RealmManager())
         }
     }
 }
