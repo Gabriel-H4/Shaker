@@ -6,5 +6,5 @@ Builds/
 Preview*Content/
 
 # Xcode
+xcshareddata/
 xcuserdata/
-*.xcodeproj

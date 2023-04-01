@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B242E1229B0585400C5DC43 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5B242E1129B0585400C5DC43 /* Realm */; };
+		5B242E1429B0585400C5DC43 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B242E1329B0585400C5DC43 /* RealmSwift */; };
+		5B242E1729B058E200C5DC43 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B242E1629B058E200C5DC43 /* .gitignore */; };
+		5B242E1A29B05B2A00C5DC43 /* ObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1929B05B2A00C5DC43 /* ObjectModels.swift */; };
+		5B242E1C29B073A400C5DC43 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1B29B073A400C5DC43 /* RealmManager.swift */; };
+		5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1D29B07B0700C5DC43 /* HomeView.swift */; };
+		5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69229B0551F0039A629 /* ShakerApp.swift */; };
+		5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */; };
+		5B92D69729B055220039A629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69629B055220039A629 /* Assets.xcassets */; };
+		5B92D69A29B055220039A629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69929B055220039A629 /* Preview Assets.xcassets */; };
+		5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFD9129D615D0009B8D6B /* DetailView.swift */; };
+		5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1401629D2393700BE9102 /* AuthenticationManager.swift */; };
+		5BE1401929D23BC500BE9102 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1401829D23BC500BE9102 /* Settings.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5B242E1629B058E200C5DC43 /* .gitignore */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = .gitignore; sourceTree = "<group>"; };
+		5B242E1929B05B2A00C5DC43 /* ObjectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectModels.swift; sourceTree = "<group>"; };
+		5B242E1B29B073A400C5DC43 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		5B242E1D29B07B0700C5DC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5B3CD8C529D29D3200F808BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5B92D68F29B0551F0039A629 /* Shaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B92D69229B0551F0039A629 /* ShakerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakerApp.swift; sourceTree = "<group>"; };
+		5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationView.swift; sourceTree = "<group>"; };
+		5B92D69629B055220039A629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B92D69929B055220039A629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5BBAFD9129D615D0009B8D6B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		5BE1401629D2393700BE9102 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		5BE1401829D23BC500BE9102 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Shaker/Settings.bundle; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B92D68C29B0551F0039A629 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B242E1429B0585400C5DC43 /* RealmSwift in Frameworks */,
+				5B242E1229B0585400C5DC43 /* Realm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B242E1529B0586E00C5DC43 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */,
+				5B242E1D29B07B0700C5DC43 /* HomeView.swift */,
+				5BBAFD9129D615D0009B8D6B /* DetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B242E1829B05B0B00C5DC43 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				5B242E1929B05B2A00C5DC43 /* ObjectModels.swift */,
+				5B242E1B29B073A400C5DC43 /* RealmManager.swift */,
+				5BE1401629D2393700BE9102 /* AuthenticationManager.swift */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
+		5B92D68629B0551F0039A629 = {
+			isa = PBXGroup;
+			children = (
+				5B242E1629B058E200C5DC43 /* .gitignore */,
+				5B92D69129B0551F0039A629 /* Shaker */,
+				5B92D69029B0551F0039A629 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5B92D69029B0551F0039A629 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B92D68F29B0551F0039A629 /* Shaker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B92D69129B0551F0039A629 /* Shaker */ = {
+			isa = PBXGroup;
+			children = (
+				5B3CD8C529D29D3200F808BC /* Info.plist */,
+				5B92D69229B0551F0039A629 /* ShakerApp.swift */,
+				5BE1401829D23BC500BE9102 /* Settings.bundle */,
+				5B242E1829B05B0B00C5DC43 /* Internal */,
+				5B242E1529B0586E00C5DC43 /* Views */,
+				5B92D69629B055220039A629 /* Assets.xcassets */,
+				5B92D69829B055220039A629 /* Preview Content */,
+			);
+			path = Shaker;
+			sourceTree = "<group>";
+		};
+		5B92D69829B055220039A629 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				5B92D69929B055220039A629 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B92D68E29B0551F0039A629 /* Shaker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B92D69D29B055220039A629 /* Build configuration list for PBXNativeTarget "Shaker" */;
+			buildPhases = (
+				5B92D68B29B0551F0039A629 /* Sources */,
+				5B92D68C29B0551F0039A629 /* Frameworks */,
+				5B92D68D29B0551F0039A629 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shaker;
+			packageProductDependencies = (
+				5B242E1129B0585400C5DC43 /* Realm */,
+				5B242E1329B0585400C5DC43 /* RealmSwift */,
+			);
+			productName = Shaker;
+			productReference = 5B92D68F29B0551F0039A629 /* Shaker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B92D68729B0551F0039A629 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					5B92D68E29B0551F0039A629 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 5B92D68A29B0551F0039A629 /* Build configuration list for PBXProject "Shaker" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B92D68629B0551F0039A629;
+			packageReferences = (
+				5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
+			productRefGroup = 5B92D69029B0551F0039A629 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B92D68E29B0551F0039A629 /* Shaker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B92D68D29B0551F0039A629 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BE1401929D23BC500BE9102 /* Settings.bundle in Resources */,
+				5B92D69A29B055220039A629 /* Preview Assets.xcassets in Resources */,
+				5B242E1729B058E200C5DC43 /* .gitignore in Resources */,
+				5B92D69729B055220039A629 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B92D68B29B0551F0039A629 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */,
+				5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */,
+				5B242E1A29B05B2A00C5DC43 /* ObjectModels.swift in Sources */,
+				5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */,
+				5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */,
+				5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */,
+				5B242E1C29B073A400C5DC43 /* RealmManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5B92D69B29B055220039A629 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B92D69C29B055220039A629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B92D69E29B055220039A629 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Shaker/Preview Content\"";
+				DEVELOPMENT_TEAM = MY7692F7R6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shaker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shaker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock Shaker to access your data";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5B92D69F29B055220039A629 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Shaker/Preview Content\"";
+				DEVELOPMENT_TEAM = MY7692F7R6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shaker/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Shaker;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock Shaker to access your data";
+				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B92D68A29B0551F0039A629 /* Build configuration list for PBXProject "Shaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B92D69B29B055220039A629 /* Debug */,
+				5B92D69C29B055220039A629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B92D69D29B055220039A629 /* Build configuration list for PBXNativeTarget "Shaker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B92D69E29B055220039A629 /* Debug */,
+				5B92D69F29B055220039A629 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.36.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B242E1129B0585400C5DC43 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		5B242E1329B0585400C5DC43 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 5B92D68729B0551F0039A629 /* Project object */;
+}
