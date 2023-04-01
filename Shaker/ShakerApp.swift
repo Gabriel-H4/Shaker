@@ -13,6 +13,7 @@ struct ShakerApp: App {
         WindowGroup {
             HomeView()
                 .environmentObject(RealmManager())
+                .onAppear(perform: SettingsBundleManager.setVersionNumber)
         }
     }
 }

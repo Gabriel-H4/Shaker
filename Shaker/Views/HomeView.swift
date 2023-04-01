@@ -52,9 +52,19 @@ struct HomeView: View {
                                 }
                         }
                         .contextMenu {
-                            Text("Copy...")
-                            Text(authKey.username ?? "")
-                            Text(authKey.token ?? "")
+                            Button(role: .none) {
+                                realmManager.toggleAuthKeyFavoriteStatus(key: authKey)
+                            } label: {
+                                authKey.isFavorite ? Label("Un-favorite", systemImage: "star.slash.fill") : Label("Favorite", systemImage: "star.fill")
+                            }
+                            Divider()
+                            Button(role: .destructive) {
+                                $allAuthKeys.remove(authKey)
+                            } label: {
+                                Label("Delete", systemImage: "trash.fill")
+                            }
+                        } preview: {
+                            DetailView(selectedKey: authKey)
                         }
                     }
                     .onDelete(perform: $allAuthKeys.remove)
