@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailView: View {
     
     @State var selectedKey: AuthKey
+    @StateObject var authManager = AuthenticationManager.shared
     
     var body: some View {
         NavigationStack {
@@ -34,6 +35,8 @@ struct DetailView: View {
                     Text("Favorite")
                 }
             }
+            .privacySensitive()
+            .redacted(reason: authManager.needsAuthentication ? .privacy : [])
             .navigationTitle("Details")
         }
     }

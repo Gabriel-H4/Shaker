@@ -14,11 +14,18 @@ struct HomeView: View {
     @ObservedResults(AuthKey.self) var allAuthKeys
     @StateObject var authManager = AuthenticationManager.shared
     @State private var isShowingAuthScreen = false
+    @State private var isShowingOnboarding = false
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
+                    Button("Onboarding") {
+                        isShowingOnboarding = true
+                    }
+                    .fullScreenCover(isPresented: $isShowingOnboarding) {
+                        OnboardingView()
+                    }
                     Button("Log Out") {
                         authManager.needsAuthentication = true
                     }
@@ -52,9 +59,21 @@ struct HomeView: View {
                                 }
                         }
                         .contextMenu {
-                            Text("Copy...")
-                            Text(authKey.username ?? "")
-                            Text(authKey.token ?? "")
+                            if !authManager.needsAuthentication {
+                                Button(role: .none) {
+                                    realmManager.toggleAuthKeyFavoriteStatus(key: authKey)
+                                } label: {
+                                    authKey.isFavorite ? Label("Un-favorite", systemImage: "star.slash.fill") : Label("Favorite", systemImage: "star.fill")
+                                }
+                                Divider()
+                                Button(role: .destructive) {
+                                    $allAuthKeys.remove(authKey)
+                                } label: {
+                                    Label("Delete", systemImage: "trash.fill")
+                                }
+                            }
+                        } preview: {
+                            DetailView(selectedKey: authKey)
                         }
                     }
                     .onDelete(perform: $allAuthKeys.remove)

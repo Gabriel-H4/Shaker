@@ -14,7 +14,7 @@
 			<key>Key</key>
 			<string>prefs_appVersion</string>
 			<key>DefaultValue</key>
-			<string>0.0.1 (1)</string>
+			<string>0.0.1</string>
 		</dict>
 	</array>
 </dict>

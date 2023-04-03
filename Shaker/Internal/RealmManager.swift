@@ -61,7 +61,6 @@ class RealmManager: ObservableObject {
                 thawed.isFavorite.toggle()
             }
             fetchAuthKeys()
-            print("Set key at id \(thawed._id) to isFavorite: \(thawed.isFavorite) successfully!")
         }
         catch {
             print("There was an error toggling the AuthKey favorite property with ID: \(key._id), and error: \(error)")
