@@ -14,11 +14,18 @@ struct HomeView: View {
     @ObservedResults(AuthKey.self) var allAuthKeys
     @StateObject var authManager = AuthenticationManager.shared
     @State private var isShowingAuthScreen = false
+    @State private var isShowingOnboarding = false
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
+                    Button("Onboarding") {
+                        isShowingOnboarding = true
+                    }
+                    .fullScreenCover(isPresented: $isShowingOnboarding) {
+                        OnboardingView()
+                    }
                     Button("Log Out") {
                         authManager.needsAuthentication = true
                     }

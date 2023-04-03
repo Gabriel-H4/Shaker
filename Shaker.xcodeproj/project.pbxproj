@@ -19,6 +19,8 @@
 		5B92D69A29B055220039A629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69929B055220039A629 /* Preview Assets.xcassets */; };
 		5BA9F7A829D8216E0071E8C0 /* SettingsBundleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9F7A729D8216E0071E8C0 /* SettingsBundleManager.swift */; };
 		5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFD9129D615D0009B8D6B /* DetailView.swift */; };
+		5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8997029D9E743008AC6E2 /* OnboardingView.swift */; };
+		5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8997429DA966A008AC6E2 /* OnboardingData.swift */; };
 		5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1401629D2393700BE9102 /* AuthenticationManager.swift */; };
 		5BE1401929D23BC500BE9102 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1401829D23BC500BE9102 /* Settings.bundle */; };
 /* End PBXBuildFile section */
@@ -36,6 +38,8 @@
 		5B92D69929B055220039A629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5BA9F7A729D8216E0071E8C0 /* SettingsBundleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleManager.swift; sourceTree = "<group>"; };
 		5BBAFD9129D615D0009B8D6B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		5BD8997029D9E743008AC6E2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		5BD8997429DA966A008AC6E2 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		5BE1401629D2393700BE9102 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		5BE1401829D23BC500BE9102 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Shaker/Settings.bundle; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -59,6 +63,7 @@
 				5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */,
 				5B242E1D29B07B0700C5DC43 /* HomeView.swift */,
 				5BBAFD9129D615D0009B8D6B /* DetailView.swift */,
+				5BD8997029D9E743008AC6E2 /* OnboardingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -70,6 +75,7 @@
 				5B242E1B29B073A400C5DC43 /* RealmManager.swift */,
 				5BE1401629D2393700BE9102 /* AuthenticationManager.swift */,
 				5BA9F7A729D8216E0071E8C0 /* SettingsBundleManager.swift */,
+				5BD8997429DA966A008AC6E2 /* OnboardingData.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -195,8 +201,10 @@
 				5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */,
 				5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */,
 				5B242E1A29B05B2A00C5DC43 /* ObjectModels.swift in Sources */,
+				5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */,
 				5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */,
 				5BA9F7A829D8216E0071E8C0 /* SettingsBundleManager.swift in Sources */,
+				5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */,
 				5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */,
 				5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */,
 				5B242E1C29B073A400C5DC43 /* RealmManager.swift in Sources */,
