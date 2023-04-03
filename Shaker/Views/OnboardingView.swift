@@ -43,7 +43,7 @@ struct OnboardingView: View {
                     }
                 } label: {
                     HStack {
-                        Text("Continue")
+                        (tabSelection < onboardingFlow.count) ? Text("Continue") : Text("Finish")
                         Image(systemName: "arrow.right")
                     }
                     .padding(.horizontal, 10)
@@ -51,9 +51,9 @@ struct OnboardingView: View {
                 }
                 .buttonStyle(.borderedProminent)
             }
-            
             .imageScale(.large)
             .buttonBorderShape(.capsule)
+            .padding(.bottom, 10)
         }
     }
 }
@@ -61,6 +61,8 @@ struct OnboardingView: View {
 struct OnboardingCardView: View {
     
     @State var currentItem: OnboardingItem
+    @State private var selectedOption = 1
+    @State private var isShowingDetailSheet = false
     
     var body: some View {
         VStack {
@@ -76,29 +78,33 @@ struct OnboardingCardView: View {
                 .padding()
             if let details = currentItem.moreDetails {
                 Button("Learn more...") {
-                    print(details)
+                    isShowingDetailSheet = true
+                }
+                .sheet(isPresented: $isShowingDetailSheet) {
+                    NavigationStack {
+                        ScrollView {
+                            Text(details)
+                                .padding(.horizontal)
+                            .navigationTitle(currentItem.title)
+                        }
+                    }
                 }
             }
             Spacer()
-            // TODO: Change buttons into Picker?
-            ForEach(currentItem.options ?? []) { option in
-                if option.isPrimary {
-                    Button(option.text) {
-                        // TODO: Implement prefs interpretation and saving
+            if currentItem.options != nil {
+                Picker("Data", selection: $selectedOption) {
+                    ForEach(currentItem.options ?? []) { option in
+                        Text(option.text)
+                            .tag(option.tag)
                     }
-                    .buttonStyle(.borderedProminent)
-                } else {
-                    Button(option.text) {
-                        // TODO: Implement prefs interpretation and saving
-                    }
-                    .buttonStyle(.bordered)
                 }
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .padding(.bottom, 15)
             }
-            .buttonBorderShape(.capsule)
-            .padding(.bottom, 15)
         }
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-        .background(.pink)
+//        .background(.pink)
         .cornerRadius(20)
         .padding(20)
     }
