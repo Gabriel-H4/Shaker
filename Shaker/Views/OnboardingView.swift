@@ -81,13 +81,7 @@ struct OnboardingCardView: View {
                     isShowingDetailSheet = true
                 }
                 .sheet(isPresented: $isShowingDetailSheet) {
-                    NavigationStack {
-                        ScrollView {
-                            Text(details)
-                                .padding(.horizontal)
-                            .navigationTitle(currentItem.title)
-                        }
-                    }
+                    OnboardingDetailView(currentItem: currentItem, detail: details)
                 }
             }
             Spacer()
