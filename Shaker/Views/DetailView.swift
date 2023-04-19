@@ -5,36 +5,40 @@
 //  Created by Gabriel Hassebrock on 3/30/23.
 //
 
+import CoreData
 import SwiftUI
 
 struct DetailView: View {
     
-    @State var selectedKey: AuthKey
+    let selectedCredential: Credential
     @StateObject var authManager = AuthenticationManager.shared
     
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    Text(selectedKey.title)
-                    Text(selectedKey._id.description)
+                    Text(selectedCredential.title ?? "No Title")
+                    Text(selectedCredential.id?.description ?? "0")
                 } header: {
                     Text("Title & ID")
                 }
                 Section {
-                    Text(selectedKey.username ?? "")
-                    Text(selectedKey.token ?? "")
+                    Text(selectedCredential.username ?? "")
+                    Text(selectedCredential.token ?? "")
                         .fontWeight(.thin)
                         .monospaced()
                 } header: {
                     Text("Username & Token")
                 }
                 Section {
-                    Text(selectedKey.isFavorite.description.capitalized)
+                    Text(selectedCredential.isPinned.description.capitalized)
+                    Text(selectedCredential.type?.capitalized ?? "Type not found")
                 } header: {
-                    Text("Favorite")
+                    Text("Favorite & Type")
                 }
             }
+            .textSelection(.enabled)
+            .disabled(authManager.needsAuthentication)
             .privacySensitive()
             .redacted(reason: authManager.needsAuthentication ? .privacy : [])
             .navigationTitle("Details")
@@ -43,7 +47,19 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
+    
+    static let moc = DataInator().container.viewContext
+    
     static var previews: some View {
-        DetailView(selectedKey: AuthKey(title: "Demo Key", username: "demo@example.com", password: "foobarbaz123", favorite: false))
+        
+        let cred = Credential(context: moc)
+        cred.id = UUID()
+        cred.title = "FooBarBaz"
+        cred.username = "user"
+        cred.token = "password01"
+        cred.isPinned = false
+        cred.url = "https://example.com"
+        
+        return DetailView(selectedCredential: cred)
     }
 }

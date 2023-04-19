@@ -6,19 +6,41 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct HomeView: View {
     
-    @EnvironmentObject var realmManager: RealmManager
-    @ObservedResults(AuthKey.self) var allAuthKeys
+    func removeCredentials(at offsets: IndexSet) {
+        for index in offsets {
+            let credential = credentials[index]
+            moc.delete(credential)
+        }
+        do {
+            try moc.save()
+        }
+        catch {
+            fatalError("There was a problem saving the deletion(s), with error: \(error.localizedDescription)")
+        }
+    }
+    
+    // Core Data
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: []) var credentials: FetchedResults<Credential>
+    
     @StateObject var authManager = AuthenticationManager.shared
     @State private var isShowingAuthScreen = false
     @State private var isShowingOnboarding = false
+    @State private var isShowingCreationView = false
     
     var body: some View {
         NavigationStack {
             List {
+                Section {
+                    Text("Presented OB App Version: \(OnboardingInfo().previousVersion)")
+                    Text("Running App Version: \(OnboardingInfo().currentVersion)")
+                    Text(OnboardingInfo().didPresentCurrentOnboarding ? "Current OB was shown!" : "Onboarding was Updated!")
+                } header: {
+                    Text("Onboarding Status")
+                }
                 Section {
                     Button("Onboarding") {
                         isShowingOnboarding = true
@@ -37,23 +59,25 @@ struct HomeView: View {
                         UserAuthenticationView()
                             .environmentObject(authManager)
                     }
+                    Button("Write to iCloud") {
+//                        CloudKitManager.writeData()
+                    }
                     Button("Settings") {
                         UIApplication.shared.open(URL(string: "app-settings:")!)
                     }
                 }
                 // TODO: Add user-defined sorting method
                 Section {
-                    ForEach(allAuthKeys.sorted(by: { $0.isFavorite && !$1.isFavorite } )) { authKey in
-                        // TODO: Revamp this, eventually convert into NavigationLink cells
-                        NavigationLink(destination: DetailView(selectedKey: authKey)) {
-                            Label(authKey.title, systemImage: authKey.isFavorite ? "star.fill" : "key.fill")
+                    ForEach(credentials) { credential in
+                        NavigationLink(destination: DetailView(selectedCredential: credential)) {
+                            Label(credential.title ?? "No Title", systemImage: credential.isPinned ? "pin.fill" : "key.fill")
                                 .privacySensitive()
-                                .redacted(reason: authManager.needsAuthentication ? .privacy : [])
                                 .swipeActions(edge: .leading) {
                                     Button(role: .none) {
-                                        realmManager.toggleAuthKeyFavoriteStatus(key: authKey)
+                                        credential.isPinned.toggle()
+                                        try? moc.save()
                                     } label: {
-                                        authKey.isFavorite ? Label("Un-favorite", systemImage: "star.slash.fill") : Label("Favorite", systemImage: "star.fill")
+                                        credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
                                     }
                                     .tint(.yellow)
                                 }
@@ -61,36 +85,46 @@ struct HomeView: View {
                         .contextMenu {
                             if !authManager.needsAuthentication {
                                 Button(role: .none) {
-                                    realmManager.toggleAuthKeyFavoriteStatus(key: authKey)
+                                    credential.isPinned.toggle()
+                                    try? moc.save()
                                 } label: {
-                                    authKey.isFavorite ? Label("Un-favorite", systemImage: "star.slash.fill") : Label("Favorite", systemImage: "star.fill")
+                                    credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
                                 }
                                 Divider()
                                 Button(role: .destructive) {
-                                    $allAuthKeys.remove(authKey)
+                                    moc.delete(credential)
+                                    try? moc.save()
                                 } label: {
                                     Label("Delete", systemImage: "trash.fill")
                                 }
                             }
                         } preview: {
-                            DetailView(selectedKey: authKey)
+                            DetailView(selectedCredential: credential)
                         }
                     }
-                    .onDelete(perform: $allAuthKeys.remove)
+                    .onDelete(perform: removeCredentials)
                     .deleteDisabled(authManager.needsAuthentication)
                     .disabled(authManager.needsAuthentication)
+                    .redacted(reason: authManager.needsAuthentication ? .privacy : [])
+                } header: {
+                    Text("Core Data")
                 }
             }
             .navigationTitle("Shaker")
             .toolbar {
+                Image(systemName: "person.circle")
+                    .padding(.trailing, 10)
                 Menu {
-                    Button("Password") {
-                        $allAuthKeys.append(AuthKey(title: "Foo", username: "Bar", password: "Baz123", favorite: false))
+                    Button("Credential") {
+                        isShowingCreationView = true
                     }
                 } label: {
                     Label("Create New", systemImage: "plus.circle.fill")
                 }
                 .disabled(authManager.needsAuthentication)
+            }
+            .sheet(isPresented: $isShowingCreationView) {
+                KeyCreationView()
             }
         }
     }
@@ -99,6 +133,5 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
-            .environmentObject(RealmManager())
     }
 }
