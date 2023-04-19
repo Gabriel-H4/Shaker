@@ -9,11 +9,17 @@ import SwiftUI
 
 @main
 struct ShakerApp: App {
+
+    @StateObject private var dataInator = DataInator()
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environmentObject(RealmManager())
-                .onAppear(perform: SettingsBundleManager.setVersionNumber)
+                .environment(\.managedObjectContext, dataInator.container.viewContext)
+                .onAppear {
+                    SettingsBundleInator.setVersionNumber()
+                    SettingsBundleInator.reviewOnboarding()
+                }
         }
     }
 }

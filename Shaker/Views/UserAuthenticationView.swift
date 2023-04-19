@@ -25,10 +25,10 @@ struct UserAuthenticationView: View {
                 Button("Authenticate") {
                     Task.init {
                         await authManager.authenticateWithBiometrics()
-                        //                        guard authManager.needsAuthentication else {
-                        //                            dismiss()
-                        //                            return
-                        //                        }
+                        guard authManager.needsAuthentication else {
+                            dismiss()
+                            return
+                        }
                     }
                 }
                 .buttonStyle(.borderedProminent)
@@ -44,6 +44,10 @@ struct UserAuthenticationView: View {
         .onAppear {
             Task.init {
                 await authManager.authenticateWithBiometrics()
+                guard authManager.needsAuthentication else {
+                    dismiss()
+                    return
+                }
             }
         }
     }
