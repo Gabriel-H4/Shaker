@@ -32,8 +32,7 @@ struct OnboardingView: View {
                     Button {
                         tabSelection -= 1
                     } label: {
-                        Label("", systemImage: "arrow.left")
-                            .labelStyle(.iconOnly)
+                        Image(systemName: "arrow.left")
                             .padding(5)
                     }
                     .clipShape(Circle())

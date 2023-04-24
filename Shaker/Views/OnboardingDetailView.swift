@@ -20,7 +20,7 @@ struct OnboardingDetailView: View {
                     .padding(.horizontal)
             }
             .toolbar {
-                ToolbarItem {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
                     } label: {

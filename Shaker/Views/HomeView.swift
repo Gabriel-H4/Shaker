@@ -25,47 +25,13 @@ struct HomeView: View {
     // Core Data
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: []) var credentials: FetchedResults<Credential>
-    
-    @StateObject var authManager = AuthenticationManager.shared
-    @State private var isShowingAuthScreen = false
-    @State private var isShowingOnboarding = false
+    @State private var isShowingAccountView = false
     @State private var isShowingCreationView = false
+    @StateObject var authManager = AuthenticationManager.shared
     
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    Text("Presented OB App Version: \(OnboardingInfo().previousVersion)")
-                    Text("Running App Version: \(OnboardingInfo().currentVersion)")
-                    Text(OnboardingInfo().didPresentCurrentOnboarding ? "Current OB was shown!" : "Onboarding was Updated!")
-                } header: {
-                    Text("Onboarding Status")
-                }
-                Section {
-                    Button("Onboarding") {
-                        isShowingOnboarding = true
-                    }
-                    .fullScreenCover(isPresented: $isShowingOnboarding) {
-                        OnboardingView()
-                    }
-                    Button("Log Out") {
-                        authManager.needsAuthentication = true
-                    }
-                    Button("Log in") {
-                        authManager.needsAuthentication = true
-                        isShowingAuthScreen = true
-                    }
-                    .fullScreenCover(isPresented: $isShowingAuthScreen) {
-                        UserAuthenticationView()
-                            .environmentObject(authManager)
-                    }
-                    Button("Write to iCloud") {
-//                        CloudKitManager.writeData()
-                    }
-                    Button("Settings") {
-                        UIApplication.shared.open(URL(string: "app-settings:")!)
-                    }
-                }
                 // TODO: Add user-defined sorting method
                 Section {
                     ForEach(credentials) { credential in
@@ -112,16 +78,27 @@ struct HomeView: View {
             }
             .navigationTitle("Shaker")
             .toolbar {
-                Image(systemName: "person.circle")
-                    .padding(.trailing, 10)
-                Menu {
-                    Button("Credential") {
-                        isShowingCreationView = true
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Button("Credential") {
+                            isShowingCreationView = true
+                        }
+                    } label: {
+                        Label("Create New", systemImage: "plus.circle.fill")
+                            .labelStyle(.iconOnly)
                     }
-                } label: {
-                    Label("Create New", systemImage: "plus.circle.fill")
+                    .disabled(authManager.needsAuthentication)
                 }
-                .disabled(authManager.needsAuthentication)
+                ToolbarItem(placement: .secondaryAction) {
+                    Button {
+                        isShowingAccountView = true
+                    } label: {
+                        Image(systemName: "person.crop.circle")
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $isShowingAccountView) {
+                AccountView()
             }
             .sheet(isPresented: $isShowingCreationView) {
                 KeyCreationView()
