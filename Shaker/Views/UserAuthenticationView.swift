@@ -22,7 +22,16 @@ struct UserAuthenticationView: View {
                     .scaledToFit()
                     .frame(maxWidth: 100.0)
                     .padding()
-                authManager.needsAuthentication ? Text("Please authenticate using your device credentials") : Text("Unlocked")
+                if authManager.needsAuthentication {
+                    switch(authManager.biometryType) {
+                    case .faceID:
+                        Text("Unlock with FaceID")
+                    case .touchID:
+                        Text("Unlock with TouchID")
+                    default:
+                        Text("Please authenticate using your device credentials")
+                    }
+                }
                 Spacer()
                 HStack {
                     Spacer()
@@ -62,6 +71,7 @@ struct UserAuthenticationView: View {
         static var previews: some View {
             UserAuthenticationView()
                 .environmentObject(AuthenticationManager.shared)
+                .previewDisplayName("User Authentication View")
         }
     }
 }

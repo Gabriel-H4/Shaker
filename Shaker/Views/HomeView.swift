@@ -32,6 +32,18 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             List {
+                if authManager.needsAuthentication || credentials.isEmpty {
+                    Section {
+                        if authManager.needsAuthentication {
+                            Label("Log in to continue", systemImage: "info.circle")
+                        }
+                        if credentials.isEmpty {
+                            Label("Add a Credential to get started!", systemImage: "info.circle")
+                        }
+                    } header: {
+                        Text("Info")
+                    }
+                }
                 // TODO: Add user-defined sorting method
                 Section {
                     ForEach(credentials) { credential in
@@ -93,7 +105,7 @@ struct HomeView: View {
                     Button {
                         isShowingAccountView = true
                     } label: {
-                        Image(systemName: "person.crop.circle")
+                        Label("Account", systemImage: "person.crop.circle")
                     }
                 }
             }
@@ -110,5 +122,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .previewDisplayName("Home View")
     }
 }

@@ -56,5 +56,6 @@ struct OnboardingCardView_Previews: PreviewProvider {
     static var previews: some View {
         let demoItem = OnboardingItem(title: "Foo", tag: 1, description: "Here's a description", moreDetails: "This is a bunch of *extra* detail, that helps explain what this option does.", icon: "star.fill", options: nil, versionIntroduced: "0.0.1")
         OnboardingCardView(currentItem: demoItem)
+            .previewDisplayName("Onboarding Card View")
     }
 }

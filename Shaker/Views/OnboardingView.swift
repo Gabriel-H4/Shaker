@@ -46,7 +46,7 @@ struct OnboardingView: View {
                     else {
                         UserDefaults.standard.set(OnboardingInfo().currentVersion, forKey: "previousVersion")
                         UserDefaults.standard.set(true, forKey: "didPresentCurrentOnboarding")
-                        self.dismiss()
+                        dismiss()
                     }
                 } label: {
                     HStack {
@@ -68,5 +68,6 @@ struct OnboardingView: View {
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
+            .previewDisplayName("Onboarding View")
     }
 }

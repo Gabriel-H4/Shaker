@@ -59,7 +59,7 @@ struct AccountView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        self.dismiss()
+                        dismiss()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                     }
@@ -74,5 +74,6 @@ struct AccountView: View {
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
+            .previewDisplayName("Account View")
     }
 }
