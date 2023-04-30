@@ -23,8 +23,12 @@ struct HomeView: View {
     }
     
     // Core Data
+    // TODO: Add user-defined sorting method
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var credentials: FetchedResults<Credential>
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.isPinned),
+        SortDescriptor(\.title)
+    ]) var credentials: FetchedResults<Credential>
     @State private var isShowingAccountView = false
     @State private var isShowingCreationView = false
     @StateObject var authManager = AuthenticationManager.shared
@@ -44,48 +48,49 @@ struct HomeView: View {
                         Text("Info")
                     }
                 }
-                // TODO: Add user-defined sorting method
-                Section {
-                    ForEach(credentials) { credential in
-                        NavigationLink(destination: DetailView(selectedCredential: credential)) {
-                            Label(credential.title ?? "No Title", systemImage: credential.isPinned ? "pin.fill" : "key.fill")
-                                .privacySensitive()
-                                .swipeActions(edge: .leading) {
+                if !credentials.isEmpty {
+                    Section {
+                        ForEach(credentials) { credential in
+                            NavigationLink(destination: DetailView(selectedCredential: credential)) {
+                                Label(credential.title ?? "No Title", systemImage: credential.isPinned ? "pin.fill" : "key.fill")
+                                    .privacySensitive()
+                                    .swipeActions(edge: .leading) {
+                                        Button(role: .none) {
+                                            credential.isPinned.toggle()
+                                            try? moc.save()
+                                        } label: {
+                                            credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
+                                        }
+                                        .tint(.yellow)
+                                    }
+                            }
+                            .contextMenu {
+                                if !authManager.needsAuthentication {
                                     Button(role: .none) {
                                         credential.isPinned.toggle()
                                         try? moc.save()
                                     } label: {
                                         credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
                                     }
-                                    .tint(.yellow)
+                                    Divider()
+                                    Button(role: .destructive) {
+                                        moc.delete(credential)
+                                        try? moc.save()
+                                    } label: {
+                                        Label("Delete", systemImage: "trash.fill")
+                                    }
                                 }
-                        }
-                        .contextMenu {
-                            if !authManager.needsAuthentication {
-                                Button(role: .none) {
-                                    credential.isPinned.toggle()
-                                    try? moc.save()
-                                } label: {
-                                    credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
-                                }
-                                Divider()
-                                Button(role: .destructive) {
-                                    moc.delete(credential)
-                                    try? moc.save()
-                                } label: {
-                                    Label("Delete", systemImage: "trash.fill")
-                                }
+                            } preview: {
+                                DetailView(selectedCredential: credential)
                             }
-                        } preview: {
-                            DetailView(selectedCredential: credential)
                         }
+                        .onDelete(perform: removeCredentials)
+                        .deleteDisabled(authManager.needsAuthentication)
+                        .disabled(authManager.needsAuthentication)
+                        .redacted(reason: authManager.needsAuthentication ? .privacy : [])
+                    } header: {
+                        Text("Core Data")
                     }
-                    .onDelete(perform: removeCredentials)
-                    .deleteDisabled(authManager.needsAuthentication)
-                    .disabled(authManager.needsAuthentication)
-                    .redacted(reason: authManager.needsAuthentication ? .privacy : [])
-                } header: {
-                    Text("Core Data")
                 }
             }
             .navigationTitle("Shaker")
