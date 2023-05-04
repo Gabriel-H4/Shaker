@@ -26,12 +26,13 @@ struct HomeView: View {
     // TODO: Add user-defined sorting method
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(sortDescriptors: [
-        SortDescriptor(\.isPinned),
+        SortDescriptor(\.isPinned, order: SortOrder.reverse),
         SortDescriptor(\.title)
-    ]) var credentials: FetchedResults<Credential>
+    ]) private var credentials: FetchedResults<Credential>
     @State private var isShowingAccountView = false
     @State private var isShowingCreationView = false
-    @StateObject var authManager = AuthenticationManager.shared
+    @State private var isShowingUserAuthView = false
+    @StateObject private var authManager = AuthenticationManager.shared
     
     var body: some View {
         NavigationStack {
@@ -119,6 +120,15 @@ struct HomeView: View {
             }
             .sheet(isPresented: $isShowingCreationView) {
                 KeyCreationView()
+            }
+        }
+        .fullScreenCover(isPresented: $isShowingUserAuthView) {
+            UserAuthenticationView()
+                .environmentObject(authManager)
+        }
+        .onAppear {
+            if authManager.needsAuthentication {
+                isShowingUserAuthView = true
             }
         }
     }
