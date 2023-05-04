@@ -61,5 +61,7 @@ struct DetailView_Previews: PreviewProvider {
         cred.url = "https://example.com"
         
         return DetailView(selectedCredential: cred)
+            .previewDisplayName("Detail View")
+        
     }
 }

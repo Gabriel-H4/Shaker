@@ -16,6 +16,7 @@
 		5B92D69729B055220039A629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69629B055220039A629 /* Assets.xcassets */; };
 		5B92D69A29B055220039A629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69929B055220039A629 /* Preview Assets.xcassets */; };
 		5BA192FC29EF9D6A00679F89 /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA192FB29EF9D6A00679F89 /* OnboardingCardView.swift */; };
+		5BA192FE29F1C6A800679F89 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA192FD29F1C6A800679F89 /* AccountView.swift */; };
 		5BA9F7A829D8216E0071E8C0 /* SettingsBundleInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */; };
 		5BB1502F29DE82A1004EE70C /* OnboardingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1502E29DE82A1004EE70C /* OnboardingDetailView.swift */; };
 		5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFD9129D615D0009B8D6B /* DetailView.swift */; };
@@ -39,6 +40,7 @@
 		5B92D69629B055220039A629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B92D69929B055220039A629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5BA192FB29EF9D6A00679F89 /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
+		5BA192FD29F1C6A800679F89 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleInator.swift; sourceTree = "<group>"; };
 		5BB1502E29DE82A1004EE70C /* OnboardingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDetailView.swift; sourceTree = "<group>"; };
 		5BBAFD9129D615D0009B8D6B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				5BD8997029D9E743008AC6E2 /* OnboardingView.swift */,
 				5BA192FB29EF9D6A00679F89 /* OnboardingCardView.swift */,
 				5BB1502E29DE82A1004EE70C /* OnboardingDetailView.swift */,
+				5BA192FD29F1C6A800679F89 /* AccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				5BCD4B4B29E27B9100BD3609 /* KeyCreationView.swift in Sources */,
 				5BA9F7A829D8216E0071E8C0 /* SettingsBundleInator.swift in Sources */,
 				5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */,
+				5BA192FE29F1C6A800679F89 /* AccountView.swift in Sources */,
 				5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */,
 				5BA192FC29EF9D6A00679F89 /* OnboardingCardView.swift in Sources */,
 				5BB1502F29DE82A1004EE70C /* OnboardingDetailView.swift in Sources */,
@@ -364,7 +368,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
@@ -384,7 +388,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -400,7 +404,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
@@ -420,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

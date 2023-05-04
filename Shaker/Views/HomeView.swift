@@ -23,108 +23,112 @@ struct HomeView: View {
     }
     
     // Core Data
+    // TODO: Add user-defined sorting method
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var credentials: FetchedResults<Credential>
-    
-    @StateObject var authManager = AuthenticationManager.shared
-    @State private var isShowingAuthScreen = false
-    @State private var isShowingOnboarding = false
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.isPinned, order: SortOrder.reverse),
+        SortDescriptor(\.title)
+    ]) private var credentials: FetchedResults<Credential>
+    @State private var isShowingAccountView = false
     @State private var isShowingCreationView = false
+    @State private var isShowingUserAuthView = false
+    @StateObject private var authManager = AuthenticationManager.shared
     
     var body: some View {
         NavigationStack {
             List {
-                Section {
-                    Text("Presented OB App Version: \(OnboardingInfo().previousVersion)")
-                    Text("Running App Version: \(OnboardingInfo().currentVersion)")
-                    Text(OnboardingInfo().didPresentCurrentOnboarding ? "Current OB was shown!" : "Onboarding was Updated!")
-                } header: {
-                    Text("Onboarding Status")
-                }
-                Section {
-                    Button("Onboarding") {
-                        isShowingOnboarding = true
-                    }
-                    .fullScreenCover(isPresented: $isShowingOnboarding) {
-                        OnboardingView()
-                    }
-                    Button("Log Out") {
-                        authManager.needsAuthentication = true
-                    }
-                    Button("Log in") {
-                        authManager.needsAuthentication = true
-                        isShowingAuthScreen = true
-                    }
-                    .fullScreenCover(isPresented: $isShowingAuthScreen) {
-                        UserAuthenticationView()
-                            .environmentObject(authManager)
-                    }
-                    Button("Write to iCloud") {
-//                        CloudKitManager.writeData()
-                    }
-                    Button("Settings") {
-                        UIApplication.shared.open(URL(string: "app-settings:")!)
+                if authManager.needsAuthentication || credentials.isEmpty {
+                    Section {
+                        if authManager.needsAuthentication {
+                            Label("Log in to continue", systemImage: "info.circle")
+                        }
+                        if credentials.isEmpty {
+                            Label("Add a Credential to get started!", systemImage: "info.circle")
+                        }
+                    } header: {
+                        Text("Info")
                     }
                 }
-                // TODO: Add user-defined sorting method
-                Section {
-                    ForEach(credentials) { credential in
-                        NavigationLink(destination: DetailView(selectedCredential: credential)) {
-                            Label(credential.title ?? "No Title", systemImage: credential.isPinned ? "pin.fill" : "key.fill")
-                                .privacySensitive()
-                                .swipeActions(edge: .leading) {
+                if !credentials.isEmpty {
+                    Section {
+                        ForEach(credentials) { credential in
+                            NavigationLink(destination: DetailView(selectedCredential: credential)) {
+                                Label(credential.title ?? "No Title", systemImage: credential.isPinned ? "pin.fill" : "key.fill")
+                                    .privacySensitive()
+                                    .swipeActions(edge: .leading) {
+                                        Button(role: .none) {
+                                            credential.isPinned.toggle()
+                                            try? moc.save()
+                                        } label: {
+                                            credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
+                                        }
+                                        .tint(.yellow)
+                                    }
+                            }
+                            .contextMenu {
+                                if !authManager.needsAuthentication {
                                     Button(role: .none) {
                                         credential.isPinned.toggle()
                                         try? moc.save()
                                     } label: {
                                         credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
                                     }
-                                    .tint(.yellow)
+                                    Divider()
+                                    Button(role: .destructive) {
+                                        moc.delete(credential)
+                                        try? moc.save()
+                                    } label: {
+                                        Label("Delete", systemImage: "trash.fill")
+                                    }
                                 }
-                        }
-                        .contextMenu {
-                            if !authManager.needsAuthentication {
-                                Button(role: .none) {
-                                    credential.isPinned.toggle()
-                                    try? moc.save()
-                                } label: {
-                                    credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
-                                }
-                                Divider()
-                                Button(role: .destructive) {
-                                    moc.delete(credential)
-                                    try? moc.save()
-                                } label: {
-                                    Label("Delete", systemImage: "trash.fill")
-                                }
+                            } preview: {
+                                DetailView(selectedCredential: credential)
                             }
-                        } preview: {
-                            DetailView(selectedCredential: credential)
                         }
+                        .onDelete(perform: removeCredentials)
+                        .deleteDisabled(authManager.needsAuthentication)
+                        .disabled(authManager.needsAuthentication)
+                        .redacted(reason: authManager.needsAuthentication ? .privacy : [])
+                    } header: {
+                        Text("Core Data")
                     }
-                    .onDelete(perform: removeCredentials)
-                    .deleteDisabled(authManager.needsAuthentication)
-                    .disabled(authManager.needsAuthentication)
-                    .redacted(reason: authManager.needsAuthentication ? .privacy : [])
-                } header: {
-                    Text("Core Data")
                 }
             }
             .navigationTitle("Shaker")
             .toolbar {
-                Image(systemName: "person.circle")
-                    .padding(.trailing, 10)
-                Menu {
-                    Button("Credential") {
-                        isShowingCreationView = true
+                ToolbarItem(placement: .primaryAction) {
+                    Menu {
+                        Button("Credential") {
+                            isShowingCreationView = true
+                        }
+                    } label: {
+                        Label("Create New", systemImage: "plus.circle.fill")
+                            .labelStyle(.iconOnly)
                     }
-                } label: {
-                    Label("Create New", systemImage: "plus.circle.fill")
+                    .disabled(authManager.needsAuthentication)
                 }
-                .disabled(authManager.needsAuthentication)
+                ToolbarItem(placement: .secondaryAction) {
+                    Button {
+                        isShowingAccountView = true
+                    } label: {
+                        Label("Account", systemImage: "person.crop.circle")
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $isShowingAccountView) {
+                AccountView()
             }
             .sheet(isPresented: $isShowingCreationView) {
                 KeyCreationView()
+            }
+        }
+        .fullScreenCover(isPresented: $isShowingUserAuthView) {
+            UserAuthenticationView()
+                .environmentObject(authManager)
+        }
+        .onAppear {
+            if authManager.needsAuthentication {
+                isShowingUserAuthView = true
             }
         }
     }
@@ -133,5 +137,6 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .previewDisplayName("Home View")
     }
 }

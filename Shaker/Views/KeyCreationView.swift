@@ -61,5 +61,6 @@ struct KeyCreationView: View {
 struct KeyCreationView_Previews: PreviewProvider {
     static var previews: some View {
         KeyCreationView(title: "FooBarPreview", username: "prev", token: "pass", url: "example.com", isPinned: false)
+            .previewDisplayName("Key Creation View")
     }
 }

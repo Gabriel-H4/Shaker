@@ -16,27 +16,42 @@ struct UserAuthenticationView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                Spacer()
                 Image(systemName: authManager.needsAuthentication ? "lock.fill" : "lock.open")
                     .resizable()
                     .scaledToFit()
-                    .padding(50)
+                    .frame(maxWidth: 100.0)
                     .padding()
-                authManager.needsAuthentication ? Text("Please authenticate using your device credentials") : Text("Unlocked")
-                Button("Authenticate") {
-                    Task.init {
-                        await authManager.authenticateWithBiometrics()
-                        guard authManager.needsAuthentication else {
-                            dismiss()
-                            return
-                        }
+                if authManager.needsAuthentication {
+                    switch(authManager.biometryType) {
+                    case .faceID:
+                        Text("Unlock with FaceID")
+                    case .touchID:
+                        Text("Unlock with TouchID")
+                    default:
+                        Text("Please authenticate using your device credentials")
                     }
                 }
-                .buttonStyle(.borderedProminent)
-                Button("Close") {
-                    dismiss()
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button("Close") {
+                        dismiss()
+                    }
+                    .buttonStyle(.bordered)
+                    Spacer()
+                    Button("Authenticate") {
+                        Task.init {
+                            await authManager.authenticateWithBiometrics()
+                            guard authManager.needsAuthentication else {
+                                dismiss()
+                                return
+                            }
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    Spacer()
                 }
-                .buttonStyle(.borderedProminent)
-                .disabled(authManager.needsAuthentication)
             }
             .navigationTitle("Authenticate")
             .padding()
@@ -56,6 +71,7 @@ struct UserAuthenticationView: View {
         static var previews: some View {
             UserAuthenticationView()
                 .environmentObject(AuthenticationManager.shared)
+                .previewDisplayName("User Authentication View")
         }
     }
 }

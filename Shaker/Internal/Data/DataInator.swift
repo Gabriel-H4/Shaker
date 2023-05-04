@@ -16,7 +16,7 @@ enum CredType: String {
 }
 
 class DataInator: ObservableObject {
-    let container = NSPersistentContainer(name: "AuthKey")
+    let container = NSPersistentCloudKitContainer(name: "AuthKey")
     
     init() {
         container.loadPersistentStores { description, error in
