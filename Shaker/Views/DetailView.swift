@@ -11,7 +11,7 @@ import SwiftUI
 struct DetailView: View {
     
     let selectedCredential: Credential
-    @StateObject var authManager = AuthenticationManager.shared
+    @StateObject var authManager = AuthenticationInator.shared
     
     var body: some View {
         NavigationStack {

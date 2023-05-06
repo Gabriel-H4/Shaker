@@ -12,7 +12,7 @@ struct AccountView: View {
     @Environment(\.dismiss) var dismiss
     @State private var isShowingAuthScreen = false
     @State private var isShowingOnboarding = false
-    @StateObject var authManager = AuthenticationManager.shared
+    @StateObject var authManager = AuthenticationInator.shared
     
     var body: some View {
         NavigationStack {

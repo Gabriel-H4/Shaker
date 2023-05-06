@@ -11,7 +11,7 @@ import LocalAuthentication
 struct UserAuthenticationView: View {
     
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var authManager: AuthenticationManager
+    @EnvironmentObject var authManager: AuthenticationInator
     
     var body: some View {
         NavigationStack {
@@ -70,7 +70,7 @@ struct UserAuthenticationView: View {
     struct UserAuthenticationView_Previews: PreviewProvider {
         static var previews: some View {
             UserAuthenticationView()
-                .environmentObject(AuthenticationManager.shared)
+                .environmentObject(AuthenticationInator.shared)
                 .previewDisplayName("User Authentication View")
         }
     }

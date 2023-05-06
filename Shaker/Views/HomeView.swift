@@ -32,7 +32,7 @@ struct HomeView: View {
     @State private var isShowingAccountView = false
     @State private var isShowingCreationView = false
     @State private var isShowingUserAuthView = false
-    @StateObject private var authManager = AuthenticationManager.shared
+    @StateObject private var authManager = AuthenticationInator.shared
     
     var body: some View {
         NavigationStack {

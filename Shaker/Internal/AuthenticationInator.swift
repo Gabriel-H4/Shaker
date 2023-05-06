@@ -1,5 +1,5 @@
 //
-//  AuthenticationManager.swift
+//  AuthenticationInator.swift
 //  Shaker
 //
 //  Created by Gabriel Hassebrock on 3/27/23.
@@ -8,9 +8,9 @@
 import Foundation
 import LocalAuthentication
 
-class AuthenticationManager: ObservableObject {
+class AuthenticationInator: ObservableObject {
     
-    static let shared = AuthenticationManager()
+    static let shared = AuthenticationInator()
     
     private(set) var context = LAContext()
     private(set) var canEvaluatePolicy = false

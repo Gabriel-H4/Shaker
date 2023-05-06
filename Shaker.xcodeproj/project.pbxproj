@@ -24,7 +24,7 @@
 		5BCD4B4F29E32CFD00BD3609 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD4B4E29E32CFD00BD3609 /* CloudKitManager.swift */; };
 		5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8997029D9E743008AC6E2 /* OnboardingView.swift */; };
 		5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8997429DA966A008AC6E2 /* OnboardingData.swift */; };
-		5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1401629D2393700BE9102 /* AuthenticationManager.swift */; };
+		5BE1401729D2393700BE9102 /* AuthenticationInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1401629D2393700BE9102 /* AuthenticationInator.swift */; };
 		5BE1401929D23BC500BE9102 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1401829D23BC500BE9102 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
@@ -49,7 +49,7 @@
 		5BCD4B4E29E32CFD00BD3609 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		5BD8997029D9E743008AC6E2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		5BD8997429DA966A008AC6E2 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
-		5BE1401629D2393700BE9102 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		5BE1401629D2393700BE9102 /* AuthenticationInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInator.swift; sourceTree = "<group>"; };
 		5BE1401829D23BC500BE9102 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Shaker/Settings.bundle; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -84,7 +84,7 @@
 			children = (
 				5BCD4B4D29E32CE600BD3609 /* Sync */,
 				5B8565D929E510F60082C238 /* Data */,
-				5BE1401629D2393700BE9102 /* AuthenticationManager.swift */,
+				5BE1401629D2393700BE9102 /* AuthenticationInator.swift */,
 				5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */,
 				5BD8997429DA966A008AC6E2 /* OnboardingData.swift */,
 			);
@@ -227,7 +227,7 @@
 				5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */,
 				5B8565DE29E513250082C238 /* DataInator.swift in Sources */,
 				5BCD4B4F29E32CFD00BD3609 /* CloudKitManager.swift in Sources */,
-				5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */,
+				5BE1401729D2393700BE9102 /* AuthenticationInator.swift in Sources */,
 				5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */,
 				5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */,
 				5BCD4B4B29E27B9100BD3609 /* KeyCreationView.swift in Sources */,
@@ -368,7 +368,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
@@ -404,7 +404,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
