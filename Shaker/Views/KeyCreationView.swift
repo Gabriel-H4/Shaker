@@ -20,19 +20,22 @@ struct KeyCreationView: View {
     
     var body: some View {
         NavigationStack {
-            
             Form {
                 TextField("Title", text: $title)
                 TextField("Username", text: $username)
+                    .autocorrectionDisabled()
                     .textContentType(.username)
                 TextField("Token", text: $token)
+                    .autocorrectionDisabled()
                     .textContentType(.newPassword)
                 TextField("URL", text: $url)
+                    .autocorrectionDisabled()
                     .textContentType(.URL)
                 Toggle(isOn: $isPinned) {
                     Text("Pinned")
                 }
             }
+            .textInputAutocapitalization(.never)
             Spacer()
             Button("Save") {
                 let newCredential = Credential(context: moc)
