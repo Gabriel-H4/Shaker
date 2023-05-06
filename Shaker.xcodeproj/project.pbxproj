@@ -7,42 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B242E1229B0585400C5DC43 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5B242E1129B0585400C5DC43 /* Realm */; };
-		5B242E1429B0585400C5DC43 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5B242E1329B0585400C5DC43 /* RealmSwift */; };
 		5B242E1729B058E200C5DC43 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B242E1629B058E200C5DC43 /* .gitignore */; };
-		5B242E1A29B05B2A00C5DC43 /* ObjectModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1929B05B2A00C5DC43 /* ObjectModels.swift */; };
-		5B242E1C29B073A400C5DC43 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1B29B073A400C5DC43 /* RealmManager.swift */; };
 		5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1D29B07B0700C5DC43 /* HomeView.swift */; };
+		5B8565DC29E512780082C238 /* AuthKey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */; };
+		5B8565DE29E513250082C238 /* DataInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8565DD29E513250082C238 /* DataInator.swift */; };
 		5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69229B0551F0039A629 /* ShakerApp.swift */; };
 		5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */; };
 		5B92D69729B055220039A629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69629B055220039A629 /* Assets.xcassets */; };
 		5B92D69A29B055220039A629 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69929B055220039A629 /* Preview Assets.xcassets */; };
-		5BA9F7A829D8216E0071E8C0 /* SettingsBundleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9F7A729D8216E0071E8C0 /* SettingsBundleManager.swift */; };
+		5BA192FC29EF9D6A00679F89 /* OnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA192FB29EF9D6A00679F89 /* OnboardingCardView.swift */; };
+		5BA192FE29F1C6A800679F89 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA192FD29F1C6A800679F89 /* AccountView.swift */; };
+		5BA9F7A829D8216E0071E8C0 /* SettingsBundleInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */; };
 		5BB1502F29DE82A1004EE70C /* OnboardingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB1502E29DE82A1004EE70C /* OnboardingDetailView.swift */; };
 		5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBAFD9129D615D0009B8D6B /* DetailView.swift */; };
+		5BCD4B4B29E27B9100BD3609 /* KeyCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD4B4A29E27B9100BD3609 /* KeyCreationView.swift */; };
+		5BCD4B4F29E32CFD00BD3609 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCD4B4E29E32CFD00BD3609 /* CloudKitManager.swift */; };
 		5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8997029D9E743008AC6E2 /* OnboardingView.swift */; };
 		5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8997429DA966A008AC6E2 /* OnboardingData.swift */; };
-		5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1401629D2393700BE9102 /* AuthenticationManager.swift */; };
+		5BE1401729D2393700BE9102 /* AuthenticationInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1401629D2393700BE9102 /* AuthenticationInator.swift */; };
 		5BE1401929D23BC500BE9102 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1401829D23BC500BE9102 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B242E1629B058E200C5DC43 /* .gitignore */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = .gitignore; sourceTree = "<group>"; };
-		5B242E1929B05B2A00C5DC43 /* ObjectModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectModels.swift; sourceTree = "<group>"; };
-		5B242E1B29B073A400C5DC43 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		5B242E1D29B07B0700C5DC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5B3CD8C529D29D3200F808BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5B8565DB29E512780082C238 /* AuthKey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AuthKey.xcdatamodel; sourceTree = "<group>"; };
+		5B8565DD29E513250082C238 /* DataInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInator.swift; sourceTree = "<group>"; };
 		5B92D68F29B0551F0039A629 /* Shaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B92D69229B0551F0039A629 /* ShakerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakerApp.swift; sourceTree = "<group>"; };
 		5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationView.swift; sourceTree = "<group>"; };
 		5B92D69629B055220039A629 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B92D69929B055220039A629 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5BA9F7A729D8216E0071E8C0 /* SettingsBundleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleManager.swift; sourceTree = "<group>"; };
+		5BA192FB29EF9D6A00679F89 /* OnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardView.swift; sourceTree = "<group>"; };
+		5BA192FD29F1C6A800679F89 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleInator.swift; sourceTree = "<group>"; };
 		5BB1502E29DE82A1004EE70C /* OnboardingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDetailView.swift; sourceTree = "<group>"; };
 		5BBAFD9129D615D0009B8D6B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		5BCD4B4A29E27B9100BD3609 /* KeyCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCreationView.swift; sourceTree = "<group>"; };
+		5BCD4B4C29E31E7700BD3609 /* Shaker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shaker.entitlements; sourceTree = "<group>"; };
+		5BCD4B4E29E32CFD00BD3609 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		5BD8997029D9E743008AC6E2 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		5BD8997429DA966A008AC6E2 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
-		5BE1401629D2393700BE9102 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		5BE1401629D2393700BE9102 /* AuthenticationInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInator.swift; sourceTree = "<group>"; };
 		5BE1401829D23BC500BE9102 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Shaker/Settings.bundle; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -51,8 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B242E1429B0585400C5DC43 /* RealmSwift in Frameworks */,
-				5B242E1229B0585400C5DC43 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,11 +67,14 @@
 		5B242E1529B0586E00C5DC43 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */,
 				5B242E1D29B07B0700C5DC43 /* HomeView.swift */,
+				5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */,
+				5BCD4B4A29E27B9100BD3609 /* KeyCreationView.swift */,
 				5BBAFD9129D615D0009B8D6B /* DetailView.swift */,
 				5BD8997029D9E743008AC6E2 /* OnboardingView.swift */,
+				5BA192FB29EF9D6A00679F89 /* OnboardingCardView.swift */,
 				5BB1502E29DE82A1004EE70C /* OnboardingDetailView.swift */,
+				5BA192FD29F1C6A800679F89 /* AccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -74,13 +82,22 @@
 		5B242E1829B05B0B00C5DC43 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				5B242E1929B05B2A00C5DC43 /* ObjectModels.swift */,
-				5B242E1B29B073A400C5DC43 /* RealmManager.swift */,
-				5BE1401629D2393700BE9102 /* AuthenticationManager.swift */,
-				5BA9F7A729D8216E0071E8C0 /* SettingsBundleManager.swift */,
+				5BCD4B4D29E32CE600BD3609 /* Sync */,
+				5B8565D929E510F60082C238 /* Data */,
+				5BE1401629D2393700BE9102 /* AuthenticationInator.swift */,
+				5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */,
 				5BD8997429DA966A008AC6E2 /* OnboardingData.swift */,
 			);
 			path = Internal;
+			sourceTree = "<group>";
+		};
+		5B8565D929E510F60082C238 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */,
+				5B8565DD29E513250082C238 /* DataInator.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		5B92D68629B0551F0039A629 = {
@@ -103,6 +120,7 @@
 		5B92D69129B0551F0039A629 /* Shaker */ = {
 			isa = PBXGroup;
 			children = (
+				5BCD4B4C29E31E7700BD3609 /* Shaker.entitlements */,
 				5B3CD8C529D29D3200F808BC /* Info.plist */,
 				5B92D69229B0551F0039A629 /* ShakerApp.swift */,
 				5BE1401829D23BC500BE9102 /* Settings.bundle */,
@@ -122,6 +140,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5BCD4B4D29E32CE600BD3609 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				5BCD4B4E29E32CFD00BD3609 /* CloudKitManager.swift */,
+			);
+			path = Sync;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,8 +165,6 @@
 			);
 			name = Shaker;
 			packageProductDependencies = (
-				5B242E1129B0585400C5DC43 /* Realm */,
-				5B242E1329B0585400C5DC43 /* RealmSwift */,
 			);
 			productName = Shaker;
 			productReference = 5B92D68F29B0551F0039A629 /* Shaker.app */;
@@ -171,7 +195,6 @@
 			);
 			mainGroup = 5B92D68629B0551F0039A629;
 			packageReferences = (
-				5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 5B92D69029B0551F0039A629 /* Products */;
 			projectDirPath = "";
@@ -202,16 +225,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */,
-				5BE1401729D2393700BE9102 /* AuthenticationManager.swift in Sources */,
-				5B242E1A29B05B2A00C5DC43 /* ObjectModels.swift in Sources */,
+				5B8565DE29E513250082C238 /* DataInator.swift in Sources */,
+				5BCD4B4F29E32CFD00BD3609 /* CloudKitManager.swift in Sources */,
+				5BE1401729D2393700BE9102 /* AuthenticationInator.swift in Sources */,
 				5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */,
 				5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */,
-				5BA9F7A829D8216E0071E8C0 /* SettingsBundleManager.swift in Sources */,
+				5BCD4B4B29E27B9100BD3609 /* KeyCreationView.swift in Sources */,
+				5BA9F7A829D8216E0071E8C0 /* SettingsBundleInator.swift in Sources */,
 				5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */,
+				5BA192FE29F1C6A800679F89 /* AccountView.swift in Sources */,
 				5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */,
+				5BA192FC29EF9D6A00679F89 /* OnboardingCardView.swift in Sources */,
 				5BB1502F29DE82A1004EE70C /* OnboardingDetailView.swift in Sources */,
 				5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */,
-				5B242E1C29B073A400C5DC43 /* RealmManager.swift in Sources */,
+				5B8565DC29E512780082C238 /* AuthKey.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -350,6 +378,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock Shaker to access your data";
 				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -359,7 +388,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -373,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -384,6 +414,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Unlock Shaker to access your data";
 				INFOPLIST_KEY_NSFileProviderDomainUsageDescription = "";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -393,7 +424,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.1;
+				MARKETING_VERSION = 0.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -425,29 +456,18 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 10.36.0;
-			};
+/* Begin XCVersionGroup section */
+		5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B8565DB29E512780082C238 /* AuthKey.xcdatamodel */,
+			);
+			currentVersion = 5B8565DB29E512780082C238 /* AuthKey.xcdatamodel */;
+			path = AuthKey.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
 		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5B242E1129B0585400C5DC43 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
-		};
-		5B242E1329B0585400C5DC43 /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5B242E1029B0585400C5DC43 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
+/* End XCVersionGroup section */
 	};
 	rootObject = 5B92D68729B0551F0039A629 /* Project object */;
 }
