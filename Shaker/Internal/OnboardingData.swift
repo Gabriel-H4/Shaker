@@ -54,5 +54,6 @@ private let onboardingFlow =
     ]
 
 func filterOnboardingData() -> [OnboardingItem]? {
+    LoggingInator.log(.runtime, .function, .info, "Filtered app onboarding cards to present")
     return onboardingFlow.filter { $0.versionIntroduced >= OnboardingInfo().previousVersion && !OnboardingInfo().didPresentCurrentOnboarding }
 }

@@ -13,12 +13,15 @@ struct HomeView: View {
         for index in offsets {
             let credential = credentials[index]
             moc.delete(credential)
+            LoggingInator.log(.runtime, .function, .info, "Request to delete a credential was processed")
         }
         do {
+            LoggingInator.log(.runtime, .function, .info, "Attempting to save the updated managed object context, with deleted credential(s)")
             try moc.save()
         }
         catch {
-            fatalError("There was a problem saving the deletion(s), with error: \(error.localizedDescription)")
+            LoggingInator.log(.runtime, .function, .error, "Updating the managed object context failed with error: \(error.localizedDescription)")
+            fatalError("Updating the managed object context failed with error: \(error.localizedDescription)")
         }
     }
     
@@ -127,6 +130,7 @@ struct HomeView: View {
                 .environmentObject(authManager)
         }
         .onAppear {
+            LoggingInator.log(.runtime, .view, .info, "HomeView appeared")
             if authManager.needsAuthentication {
                 isShowingUserAuthView = true
             }

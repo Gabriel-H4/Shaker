@@ -44,6 +44,7 @@ struct UserAuthenticationView: View {
                         Task.init {
                             await authManager.authenticateWithBiometrics()
                             guard authManager.needsAuthentication else {
+                                LoggingInator.log(.runtime, .view, .info, "Authentication was successful, dismissing view")
                                 dismiss()
                                 return
                             }
@@ -57,6 +58,7 @@ struct UserAuthenticationView: View {
             .padding()
         }
         .onAppear {
+            LoggingInator.log(.runtime, .view, .info, "UserAuthenticationView appeared")
             Task.init {
                 await authManager.authenticateWithBiometrics()
                 guard authManager.needsAuthentication else {

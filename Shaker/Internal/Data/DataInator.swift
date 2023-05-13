@@ -19,10 +19,13 @@ class DataInator: ObservableObject {
     let container = NSPersistentCloudKitContainer(name: "AuthKey")
     
     init() {
+        LoggingInator.log(.setup, .function, .info, "Began initializing CoreData Persistant Container")
         container.loadPersistentStores { description, error in
             if let error = error {
-                print("Core Data failed to load the Container's Persistant Store with error: \(error.localizedDescription)")
+                LoggingInator.log(.setup, .function, .error, "Initializing the CoreData Persistant Container failed with error: \(error.localizedDescription)")
+                fatalError("Initializing the CoreData Persistant Container failed with error: \(error.localizedDescription)")
             }
         }
+        LoggingInator.log(.setup, .function, .info, "Finished initializing CoreData Persistant Container")
     }
 }

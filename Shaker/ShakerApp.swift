@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct ShakerApp: App {
 
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var dataInator = DataInator()
     
     var body: some Scene {
@@ -17,8 +18,12 @@ struct ShakerApp: App {
             HomeView()
                 .environment(\.managedObjectContext, dataInator.container.viewContext)
                 .onAppear {
+                    LoggingInator.log(.setup, .app, .info, "Shaker has been launched")
                     SettingsBundleInator.setVersionNumber()
                     SettingsBundleInator.reviewOnboarding()
+                }
+                .onChange(of: scenePhase) { newPhase in
+                    LoggingInator.log(.runtime, .app, .info, "State change detected, new scenePhase is \(newPhase)")
                 }
         }
     }

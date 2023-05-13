@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B1E9AB62A0C8C8F00BB6733 /* LoggingInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E9AB52A0C8C8F00BB6733 /* LoggingInator.swift */; };
 		5B242E1729B058E200C5DC43 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B242E1629B058E200C5DC43 /* .gitignore */; };
 		5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1D29B07B0700C5DC43 /* HomeView.swift */; };
 		5B8565DC29E512780082C238 /* AuthKey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B1E9AB52A0C8C8F00BB6733 /* LoggingInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingInator.swift; sourceTree = "<group>"; };
 		5B242E1629B058E200C5DC43 /* .gitignore */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = .gitignore; sourceTree = "<group>"; };
 		5B242E1D29B07B0700C5DC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5B3CD8C529D29D3200F808BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */,
 				5B8565DD29E513250082C238 /* DataInator.swift */,
+				5B1E9AB52A0C8C8F00BB6733 /* LoggingInator.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 			files = (
 				5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */,
 				5B8565DE29E513250082C238 /* DataInator.swift in Sources */,
+				5B1E9AB62A0C8C8F00BB6733 /* LoggingInator.swift in Sources */,
 				5BCD4B4F29E32CFD00BD3609 /* CloudKitManager.swift in Sources */,
 				5BE1401729D2393700BE9102 /* AuthenticationInator.swift in Sources */,
 				5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */,
@@ -368,7 +372,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
@@ -388,7 +392,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -404,7 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
@@ -424,7 +428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.1;
+				MARKETING_VERSION = 0.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
