@@ -5,15 +5,19 @@
 //  Created by Gabriel Hassebrock on 4/3/23.
 //
 
+// TODO: Rewrite all of this :)
+
 import Foundation
 import SwiftUI
 
+/// The onboarding information stored in UserDefaults
 struct OnboardingInfo {
-    let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-    let previousVersion = UserDefaults.standard.string(forKey: "previousVersion") ?? "0.0.0"
-    let didPresentCurrentOnboarding = UserDefaults.standard.bool(forKey: "didPresentCurrentOnboarding")
+    static let currentVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    static let previousVersion = UserDefaults.standard.string(forKey: "previousVersion") ?? "0.0.0"
+    static let didPresentCurrentOnboarding = UserDefaults.standard.bool(forKey: "didPresentCurrentOnboarding")
 }
 
+/// An app onboarding item, with all data needed to form a view
 struct OnboardingItem: Identifiable {
     let id = UUID()
     let title: String
@@ -25,6 +29,7 @@ struct OnboardingItem: Identifiable {
     let versionIntroduced: String
 }
 
+/// An app onboarding item option, selectable using a picker
 struct OnboardingItemOption: Identifiable {
     let id = UUID()
     let text: String
@@ -39,7 +44,7 @@ enum PrivacyChoice: CaseIterable, Identifiable {
 
 // TODO: Convert plain-text into Markdown and render it as such
 // TODO: Add better visual examples in dialogue for privacy options
-// MARK: Extract moreDetails to another array for simplicity?
+// MARK: Extract moreDetails to another array?
 
 private let onboardingFlow =
     [
@@ -53,7 +58,9 @@ private let onboardingFlow =
         OnboardingItem(title: "That's it!", tag: 3, description: "Thanks for using Shaker! Stay tuned for new updates", moreDetails: nil, icon: "flag.checkered.2.crossed", options: nil, versionIntroduced: "0.0.1")
     ]
 
+/// Check the OnboardingItems and filter it based on their versionIntroduced value
+/// - Returns: All OnboardingItems where their versionIntroduced is greater than or equal to the previously installed app version
 func filterOnboardingData() -> [OnboardingItem]? {
     LoggingInator.log(.runtime, .function, .info, "Filtered app onboarding cards to present")
-    return onboardingFlow.filter { $0.versionIntroduced >= OnboardingInfo().previousVersion && !OnboardingInfo().didPresentCurrentOnboarding }
+    return onboardingFlow.filter { $0.versionIntroduced >= OnboardingInfo.previousVersion && !OnboardingInfo.didPresentCurrentOnboarding }
 }

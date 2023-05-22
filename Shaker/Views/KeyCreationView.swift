@@ -14,8 +14,7 @@ struct KeyCreationView: View {
     
     @State var title: String = ""
     @State var username: String = ""
-    @State var token: String = ""
-    @State var url: String = ""
+    @State var value: String = ""
     @State var isPinned: Bool = false
     
     var body: some View {
@@ -25,12 +24,9 @@ struct KeyCreationView: View {
                 TextField("Username", text: $username)
                     .autocorrectionDisabled()
                     .textContentType(.username)
-                TextField("Token", text: $token)
+                TextField("Token", text: $value)
                     .autocorrectionDisabled()
                     .textContentType(.newPassword)
-                TextField("URL", text: $url)
-                    .autocorrectionDisabled()
-                    .textContentType(.URL)
                 Toggle(isOn: $isPinned) {
                     Text("Pinned")
                 }
@@ -38,20 +34,13 @@ struct KeyCreationView: View {
             .textInputAutocapitalization(.never)
             Spacer()
             Button("Save") {
-                let newCredential = Credential(context: moc)
-                newCredential.id = UUID()
+                let newCredential = Password(context: moc)
                 newCredential.title = title
                 newCredential.username = username
-                newCredential.token = token
+                newCredential.value = value
                 newCredential.isPinned = isPinned
-                newCredential.type = CredType.credential.rawValue
-                do {
-                    try moc.save()
-                    dismiss()
-                }
-                catch {
-                    fatalError("There was a problem saving the new Credential with error: \(error.localizedDescription)")
-                }
+                ContainerInator.shared.save()
+                dismiss()
             }
             .padding(.bottom, 10)
             .buttonBorderShape(.capsule)
@@ -63,7 +52,7 @@ struct KeyCreationView: View {
 
 struct KeyCreationView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyCreationView(title: "FooBarPreview", username: "prev", token: "pass", url: "example.com", isPinned: false)
+        KeyCreationView(title: "FooBarPreview", username: "prev", value: "pass", isPinned: false)
             .previewDisplayName("Key Creation View")
     }
 }

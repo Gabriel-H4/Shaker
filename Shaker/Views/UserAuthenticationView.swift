@@ -11,19 +11,19 @@ import LocalAuthentication
 struct UserAuthenticationView: View {
     
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var authManager: AuthenticationInator
+    @EnvironmentObject var authInator: AuthenticationInator
     
     var body: some View {
         NavigationStack {
             VStack {
                 Spacer()
-                Image(systemName: authManager.needsAuthentication ? "lock.fill" : "lock.open")
+                Image(systemName: authInator.needsAuthentication ? "lock.fill" : "lock.open")
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: 100.0)
                     .padding()
-                if authManager.needsAuthentication {
-                    switch(authManager.biometryType) {
+                if authInator.needsAuthentication {
+                    switch(authInator.biometryType) {
                     case .faceID:
                         Text("Unlock with FaceID")
                     case .touchID:
@@ -42,8 +42,8 @@ struct UserAuthenticationView: View {
                     Spacer()
                     Button("Authenticate") {
                         Task.init {
-                            await authManager.authenticateWithBiometrics()
-                            guard authManager.needsAuthentication else {
+                            await authInator.authenticateWithBiometrics()
+                            guard authInator.needsAuthentication else {
                                 LoggingInator.log(.runtime, .view, .info, "Authentication was successful, dismissing view")
                                 dismiss()
                                 return
@@ -60,8 +60,8 @@ struct UserAuthenticationView: View {
         .onAppear {
             LoggingInator.log(.runtime, .view, .info, "UserAuthenticationView appeared")
             Task.init {
-                await authManager.authenticateWithBiometrics()
-                guard authManager.needsAuthentication else {
+                await authInator.authenticateWithBiometrics()
+                guard authInator.needsAuthentication else {
                     dismiss()
                     return
                 }

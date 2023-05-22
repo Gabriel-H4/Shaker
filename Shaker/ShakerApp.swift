@@ -9,21 +9,25 @@ import SwiftUI
 
 @main
 struct ShakerApp: App {
-
     @Environment(\.scenePhase) private var scenePhase
-    @StateObject private var dataInator = DataInator()
+    
+    let authInator = AuthenticationInator.shared
+    let containerInator = ContainerInator.shared
     
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environment(\.managedObjectContext, dataInator.container.viewContext)
+                .environment(\.managedObjectContext, containerInator.container.viewContext)
+                .environmentObject(authInator)
                 .onAppear {
-                    LoggingInator.log(.setup, .app, .info, "Shaker has been launched")
+                    LoggingInator.log(.setup, .app, .info, "Shaker has finished launching, and the WindowGroup is now presenting content")
                     SettingsBundleInator.setVersionNumber()
                     SettingsBundleInator.reviewOnboarding()
+                    LoggingInator.log(.setup, .app, .info, "Finished all setup tasks")
                 }
                 .onChange(of: scenePhase) { newPhase in
-                    LoggingInator.log(.runtime, .app, .info, "State change detected, new scenePhase is \(newPhase)")
+                    LoggingInator.log(.runtime, .app, .info, "An app state change was detected, the new scenePhase is \(newPhase). Now saving the CoreData container.")
+                    containerInator.save()
                 }
         }
     }

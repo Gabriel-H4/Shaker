@@ -8,6 +8,7 @@
 import CoreData
 import Foundation
 
+@available(*, deprecated)
 enum CredType: String {
     case password = "Password"
     case mfa = "2FA Key"
@@ -15,7 +16,8 @@ enum CredType: String {
     case credential = "Other"
 }
 
-class DataInator: ObservableObject {
+@available(*, deprecated, renamed: "ContainerInator.shared")
+final class DataInator: ObservableObject {
     let container = NSPersistentCloudKitContainer(name: "AuthKey")
     
     init() {

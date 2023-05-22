@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F5059b" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Credential" representedClassName="Credential" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <attribute name="isPinned" attributeType="Boolean" defaultValueString="NO" allowsCloudEncryption="YES" usesScalarValueType="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="Untitled" allowsCloudEncryption="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+        <attribute name="value" optional="YES" attributeType="String" allowsCloudEncryption="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" parentEntity="Credential" syncable="YES" codeGenerationType="class"/>
+    <entity name="Passkey" representedClassName="Passkey" parentEntity="Credential" syncable="YES" codeGenerationType="class"/>
+    <entity name="Password" representedClassName="Password" parentEntity="Credential" syncable="YES" codeGenerationType="class"/>
+    <entity name="TwoFA" representedClassName="TwoFA" parentEntity="Credential" syncable="YES" codeGenerationType="class"/>
+</model>

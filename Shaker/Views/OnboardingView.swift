@@ -44,7 +44,7 @@ struct OnboardingView: View {
                         tabSelection += 1
                     }
                     else {
-                        UserDefaults.standard.set(OnboardingInfo().currentVersion, forKey: "previousVersion")
+                        UserDefaults.standard.set(OnboardingInfo.currentVersion, forKey: "previousVersion")
                         UserDefaults.standard.set(true, forKey: "didPresentCurrentOnboarding")
                         dismiss()
                     }

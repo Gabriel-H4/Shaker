@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0298932A10A64C00F6D047 /* ContainerInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0298922A10A64C00F6D047 /* ContainerInator.swift */; };
 		5B1E9AB62A0C8C8F00BB6733 /* LoggingInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1E9AB52A0C8C8F00BB6733 /* LoggingInator.swift */; };
 		5B242E1729B058E200C5DC43 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B242E1629B058E200C5DC43 /* .gitignore */; };
 		5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1D29B07B0700C5DC43 /* HomeView.swift */; };
-		5B8565DC29E512780082C238 /* AuthKey.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */; };
+		5B38E8DA2A16FF560078A9FB /* Shaker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B38E8D82A16FF560078A9FB /* Shaker.xcdatamodeld */; };
 		5B8565DE29E513250082C238 /* DataInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8565DD29E513250082C238 /* DataInator.swift */; };
 		5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69229B0551F0039A629 /* ShakerApp.swift */; };
 		5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */; };
@@ -27,14 +28,16 @@
 		5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD8997429DA966A008AC6E2 /* OnboardingData.swift */; };
 		5BE1401729D2393700BE9102 /* AuthenticationInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1401629D2393700BE9102 /* AuthenticationInator.swift */; };
 		5BE1401929D23BC500BE9102 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5BE1401829D23BC500BE9102 /* Settings.bundle */; };
+		5BED36A32A19D66A0001E45A /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BED36A22A19D66A0001E45A /* Components.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B0298922A10A64C00F6D047 /* ContainerInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContainerInator.swift; path = Shaker/Internal/Data/ContainerInator.swift; sourceTree = SOURCE_ROOT; };
 		5B1E9AB52A0C8C8F00BB6733 /* LoggingInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingInator.swift; sourceTree = "<group>"; };
 		5B242E1629B058E200C5DC43 /* .gitignore */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = .gitignore; sourceTree = "<group>"; };
 		5B242E1D29B07B0700C5DC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		5B38E8D92A16FF560078A9FB /* Shaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shaker.xcdatamodel; sourceTree = "<group>"; };
 		5B3CD8C529D29D3200F808BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5B8565DB29E512780082C238 /* AuthKey.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AuthKey.xcdatamodel; sourceTree = "<group>"; };
 		5B8565DD29E513250082C238 /* DataInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInator.swift; sourceTree = "<group>"; };
 		5B92D68F29B0551F0039A629 /* Shaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B92D69229B0551F0039A629 /* ShakerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakerApp.swift; sourceTree = "<group>"; };
@@ -53,6 +56,7 @@
 		5BD8997429DA966A008AC6E2 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		5BE1401629D2393700BE9102 /* AuthenticationInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInator.swift; sourceTree = "<group>"; };
 		5BE1401829D23BC500BE9102 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Shaker/Settings.bundle; sourceTree = SOURCE_ROOT; };
+		5BED36A22A19D66A0001E45A /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				5B242E1D29B07B0700C5DC43 /* HomeView.swift */,
+				5BED36A22A19D66A0001E45A /* Components.swift */,
 				5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */,
 				5BCD4B4A29E27B9100BD3609 /* KeyCreationView.swift */,
 				5BBAFD9129D615D0009B8D6B /* DetailView.swift */,
@@ -87,8 +92,9 @@
 				5BCD4B4D29E32CE600BD3609 /* Sync */,
 				5B8565D929E510F60082C238 /* Data */,
 				5BE1401629D2393700BE9102 /* AuthenticationInator.swift */,
-				5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */,
+				5B1E9AB52A0C8C8F00BB6733 /* LoggingInator.swift */,
 				5BD8997429DA966A008AC6E2 /* OnboardingData.swift */,
+				5BA9F7A729D8216E0071E8C0 /* SettingsBundleInator.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -96,9 +102,9 @@
 		5B8565D929E510F60082C238 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */,
+				5B38E8D82A16FF560078A9FB /* Shaker.xcdatamodeld */,
+				5B0298922A10A64C00F6D047 /* ContainerInator.swift */,
 				5B8565DD29E513250082C238 /* DataInator.swift */,
-				5B1E9AB52A0C8C8F00BB6733 /* LoggingInator.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -229,12 +235,15 @@
 			files = (
 				5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */,
 				5B8565DE29E513250082C238 /* DataInator.swift in Sources */,
+				5B38E8DA2A16FF560078A9FB /* Shaker.xcdatamodeld in Sources */,
 				5B1E9AB62A0C8C8F00BB6733 /* LoggingInator.swift in Sources */,
 				5BCD4B4F29E32CFD00BD3609 /* CloudKitManager.swift in Sources */,
 				5BE1401729D2393700BE9102 /* AuthenticationInator.swift in Sources */,
 				5BD8997129D9E743008AC6E2 /* OnboardingView.swift in Sources */,
+				5BED36A32A19D66A0001E45A /* Components.swift in Sources */,
 				5BBAFD9229D615D0009B8D6B /* DetailView.swift in Sources */,
 				5BCD4B4B29E27B9100BD3609 /* KeyCreationView.swift in Sources */,
+				5B0298932A10A64C00F6D047 /* ContainerInator.swift in Sources */,
 				5BA9F7A829D8216E0071E8C0 /* SettingsBundleInator.swift in Sources */,
 				5BD8997529DA966A008AC6E2 /* OnboardingData.swift in Sources */,
 				5BA192FE29F1C6A800679F89 /* AccountView.swift in Sources */,
@@ -242,7 +251,6 @@
 				5BA192FC29EF9D6A00679F89 /* OnboardingCardView.swift in Sources */,
 				5BB1502F29DE82A1004EE70C /* OnboardingDetailView.swift in Sources */,
 				5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */,
-				5B8565DC29E512780082C238 /* AuthKey.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,7 +400,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -428,7 +436,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.2;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.peppr.Shaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -461,13 +469,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5B8565DA29E512780082C238 /* AuthKey.xcdatamodeld */ = {
+		5B38E8D82A16FF560078A9FB /* Shaker.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5B8565DB29E512780082C238 /* AuthKey.xcdatamodel */,
+				5B38E8D92A16FF560078A9FB /* Shaker.xcdatamodel */,
 			);
-			currentVersion = 5B8565DB29E512780082C238 /* AuthKey.xcdatamodel */;
-			path = AuthKey.xcdatamodeld;
+			currentVersion = 5B38E8D92A16FF560078A9FB /* Shaker.xcdatamodel */;
+			path = Shaker.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AccountView: View {
     
+    @EnvironmentObject private var authInator: AuthenticationInator
+    
     @Environment(\.dismiss) var dismiss
     @State private var isShowingAuthScreen = false
     @State private var isShowingOnboarding = false
@@ -23,24 +25,18 @@ struct AccountView: View {
                     .padding(.vertical, 15)
                 }
                 Section {
-                    Text("Presented OB App Version: \(OnboardingInfo().previousVersion)")
-                    Text("Running App Version: \(OnboardingInfo().currentVersion)")
-                    Text(OnboardingInfo().didPresentCurrentOnboarding ? "Current OB was shown!" : "Onboarding was Updated!")
-                } header: {
-                    Text("Onboarding Status")
-                }
-                Section {
-                    Button("Onboarding") {
+                    Button("Present Onboarding") {
                         isShowingOnboarding = true
                     }
                     .fullScreenCover(isPresented: $isShowingOnboarding) {
                         OnboardingView()
                     }
-                    Button("Log Out") {
-                        authManager.needsAuthentication = true
+                    Button("Log Out & Dismiss") {
+                        authInator.resetNeedsAuthentication()
+                        dismiss()
                     }
-                    Button("Log in") {
-                        authManager.needsAuthentication = true
+                    Button("Request Authentication") {
+                        authInator.resetNeedsAuthentication()
                         isShowingAuthScreen = true
                     }
                     .fullScreenCover(isPresented: $isShowingAuthScreen) {
@@ -54,6 +50,19 @@ struct AccountView: View {
                     Button("Shaker iOS Settings") {
                         UIApplication.shared.open(URL(string: "app-settings:")!)
                     }
+                } header: {
+                    Label("Debug Options", systemImage: "slider.vertical.3")
+                }
+                Section {
+                    Text(LoggingInator.logFile.absoluteString)
+                    Text("Onboarding Status")
+                        .contextMenu {
+                            Text("Presented v\(OnboardingInfo.previousVersion)")
+                            Text("Currently in v\(OnboardingInfo.currentVersion)")
+                            Text("Presented new version: \(OnboardingInfo.didPresentCurrentOnboarding.description)")
+                        }
+                } header: {
+                    Label("Debug Info", systemImage: "ant.fill")
                 }
             }
             .toolbar {

@@ -17,24 +17,23 @@ struct DetailView: View {
         NavigationStack {
             List {
                 Section {
-                    Text(selectedCredential.title ?? "No Title")
-                    Text(selectedCredential.id?.description ?? "0")
+                    Text(selectedCredential.title ?? "Nil")
+                    Text(selectedCredential.id.hashValue.description)
                 } header: {
-                    Text("Title & ID")
+                    Text("ID")
                 }
                 Section {
-                    Text(selectedCredential.username ?? "")
-                    Text(selectedCredential.token ?? "")
+                    Text(selectedCredential.username ?? "Nil")
+                    Text(selectedCredential.value ?? "Nil")
                         .fontWeight(.thin)
                         .monospaced()
                 } header: {
-                    Text("Username & Token")
+                    Text("Username & Value")
                 }
                 Section {
                     Text(selectedCredential.isPinned.description.capitalized)
-                    Text(selectedCredential.type?.capitalized ?? "Type not found")
                 } header: {
-                    Text("Favorite & Type")
+                    Text("Pinned")
                 }
             }
             .textSelection(.enabled)
@@ -48,17 +47,15 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     
-    static let moc = DataInator().container.viewContext
+    static let moc = ContainerInator.preview.container.viewContext
     
     static var previews: some View {
         
-        let cred = Credential(context: moc)
-        cred.id = UUID()
+        let cred = Password(context: moc)
         cred.title = "FooBarBaz"
         cred.username = "user"
-        cred.token = "password01"
+        cred.value = "password01"
         cred.isPinned = false
-        cred.url = "https://example.com"
         
         return DetailView(selectedCredential: cred)
             .previewDisplayName("Detail View")

@@ -11,12 +11,7 @@ import Foundation
 struct LoggingInator {
     
     /// The absolute path of the generated log file
-    private static let logFile = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("shaker-runtime.log", conformingTo: .log)
-    
-    /// An indicator representing if the log file path has been printed to the console
-    @available(*, deprecated, message: "Show the path in a debug view instead")
-    private static var didPrintPath = false
-    
+    static let logFile = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("shaker-runtime.log", conformingTo: .log)
     
     /// Various phases Shaker goes through, when events may be logged
     enum AppPhase {
@@ -74,12 +69,7 @@ struct LoggingInator {
     ///   - event: The message representing the event to be written
     static func log(_ phase: AppPhase, _ callerType: CallerType, _ status: Status, _ event: String) {
         let loggedEvent = "\(Date()) [\(status)] [\(phase)] [\(callerType)] \(event)\n"
-        
-        if !didPrintPath {
-            print(logFile.absoluteString)
-            didPrintPath = true
-        }
-        
+
         do {
             if FileManager.default.fileExists(atPath: logFile.path) {
                 let fileHandle = try FileHandle(forWritingTo: logFile)
@@ -94,4 +84,6 @@ struct LoggingInator {
             fatalError("A logging error occurred: \(error.localizedDescription)")
         }
     }
+    
+    // TODO: Modify to have a single .log call, one that defines the options for a method, and requires a call for something like .didFinish...?
 }

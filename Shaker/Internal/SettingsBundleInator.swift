@@ -1,12 +1,12 @@
 //
-//  SettingsBundleManager.swift
+//  SettingsBundleInator.swift
 //  Shaker
 //
 //  Created by Gabriel Hassebrock on 4/1/23.
 //
 
 import Foundation
-class SettingsBundleInator {
+final class SettingsBundleInator {
     
     class func setVersionNumber() {
         LoggingInator.log(.setup, .function, .info, "Began updating the settings bundle version")
@@ -19,9 +19,9 @@ class SettingsBundleInator {
     class func reviewOnboarding() {
         LoggingInator.log(.setup, .function, .info, "Began evaluating app onboarding")
         checkAndSetOnboarding()
-        if OnboardingInfo().currentVersion > OnboardingInfo().previousVersion {
+        if OnboardingInfo.currentVersion > OnboardingInfo.previousVersion {
             UserDefaults.standard.set(false, forKey: "didPresentCurrentOnboarding")
-            LoggingInator.log(.setup, .function, .info, "The app onboarding was updated, last presented version \(OnboardingInfo().previousVersion), and the new version is \(OnboardingInfo().currentVersion)")
+            LoggingInator.log(.setup, .function, .info, "The app onboarding was updated, last presented version \(OnboardingInfo.previousVersion), and the new version is \(OnboardingInfo.currentVersion)")
         }
         LoggingInator.log(.setup, .function, .info, "Finished evaluating app onboarding")
     }

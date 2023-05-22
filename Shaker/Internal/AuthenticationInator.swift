@@ -8,7 +8,7 @@
 import Foundation
 import LocalAuthentication
 
-class AuthenticationInator: ObservableObject {
+final class AuthenticationInator: ObservableObject {
     
     static let shared = AuthenticationInator()
     
@@ -16,12 +16,16 @@ class AuthenticationInator: ObservableObject {
     private(set) var canEvaluatePolicy = false
     @Published private(set) var biometryType: LABiometryType = .none
     @Published private(set) var errorDescription: String?
-    @Published var needsAuthentication = true
+    @Published private(set) var needsAuthentication = true
     
     private init() {
         LoggingInator.log(.runtime, .function, .info, "Began initializing new AuthenticationInator")
         getBiometryType()
         LoggingInator.log(.runtime, .function, .info, "Finished initializing new AuthenticationInator")
+    }
+    
+    func resetNeedsAuthentication() {
+        self.needsAuthentication = true
     }
     
     func getBiometryType() {
