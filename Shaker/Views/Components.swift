@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CredentialRowItem: View {
     
+    @Environment(\.managedObjectContext) var moc
+    @EnvironmentObject private var authInator: AuthenticationInator
     @StateObject var item: Credential
     
     var body: some View {
@@ -24,6 +26,25 @@ struct CredentialRowItem: View {
                     }
                     .tint(.yellow)
                 }
+        }
+        .contextMenu {
+            if !authInator.needsAuthentication {
+                Button(role: .none) {
+                    item.isPinned.toggle()
+                    ContainerInator.shared.save()
+                } label: {
+                    item.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
+                }
+                Divider()
+                Button(role: .destructive) {
+                    moc.delete(item)
+                    ContainerInator.shared.save()
+                } label: {
+                    Label("Delete", systemImage: "trash.fill")
+                }
+            }
+        } preview: {
+            DetailView(selectedCredential: item)
         }
     }
 }

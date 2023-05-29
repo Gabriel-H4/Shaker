@@ -12,7 +12,7 @@
 		5B242E1729B058E200C5DC43 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 5B242E1629B058E200C5DC43 /* .gitignore */; };
 		5B242E1E29B07B0700C5DC43 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B242E1D29B07B0700C5DC43 /* HomeView.swift */; };
 		5B38E8DA2A16FF560078A9FB /* Shaker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B38E8D82A16FF560078A9FB /* Shaker.xcdatamodeld */; };
-		5B8565DE29E513250082C238 /* DataInator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8565DD29E513250082C238 /* DataInator.swift */; };
+		5B6A21322A2325020031E771 /* CloudKitSyncMonitor in Frameworks */ = {isa = PBXBuildFile; productRef = 5B6A21312A2325020031E771 /* CloudKitSyncMonitor */; };
 		5B92D69329B0551F0039A629 /* ShakerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69229B0551F0039A629 /* ShakerApp.swift */; };
 		5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */; };
 		5B92D69729B055220039A629 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B92D69629B055220039A629 /* Assets.xcassets */; };
@@ -38,7 +38,6 @@
 		5B242E1D29B07B0700C5DC43 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		5B38E8D92A16FF560078A9FB /* Shaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shaker.xcdatamodel; sourceTree = "<group>"; };
 		5B3CD8C529D29D3200F808BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		5B8565DD29E513250082C238 /* DataInator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInator.swift; sourceTree = "<group>"; };
 		5B92D68F29B0551F0039A629 /* Shaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B92D69229B0551F0039A629 /* ShakerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakerApp.swift; sourceTree = "<group>"; };
 		5B92D69429B0551F0039A629 /* UserAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthenticationView.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B6A21322A2325020031E771 /* CloudKitSyncMonitor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,6 @@
 			children = (
 				5B38E8D82A16FF560078A9FB /* Shaker.xcdatamodeld */,
 				5B0298922A10A64C00F6D047 /* ContainerInator.swift */,
-				5B8565DD29E513250082C238 /* DataInator.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -174,6 +173,7 @@
 			);
 			name = Shaker;
 			packageProductDependencies = (
+				5B6A21312A2325020031E771 /* CloudKitSyncMonitor */,
 			);
 			productName = Shaker;
 			productReference = 5B92D68F29B0551F0039A629 /* Shaker.app */;
@@ -204,6 +204,7 @@
 			);
 			mainGroup = 5B92D68629B0551F0039A629;
 			packageReferences = (
+				5B6A21302A2325020031E771 /* XCRemoteSwiftPackageReference "CloudKitSyncMonitor" */,
 			);
 			productRefGroup = 5B92D69029B0551F0039A629 /* Products */;
 			projectDirPath = "";
@@ -234,7 +235,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B92D69529B0551F0039A629 /* UserAuthenticationView.swift in Sources */,
-				5B8565DE29E513250082C238 /* DataInator.swift in Sources */,
 				5B38E8DA2A16FF560078A9FB /* Shaker.xcdatamodeld in Sources */,
 				5B1E9AB62A0C8C8F00BB6733 /* LoggingInator.swift in Sources */,
 				5BCD4B4F29E32CFD00BD3609 /* CloudKitManager.swift in Sources */,
@@ -380,7 +380,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
@@ -416,7 +416,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Shaker/Shaker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = MY7692F7R6;
 				ENABLE_PREVIEWS = YES;
@@ -467,6 +467,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5B6A21302A2325020031E771 /* XCRemoteSwiftPackageReference "CloudKitSyncMonitor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ggruen/CloudKitSyncMonitor.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5B6A21312A2325020031E771 /* CloudKitSyncMonitor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B6A21302A2325020031E771 /* XCRemoteSwiftPackageReference "CloudKitSyncMonitor" */;
+			productName = CloudKitSyncMonitor;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5B38E8D82A16FF560078A9FB /* Shaker.xcdatamodeld */ = {

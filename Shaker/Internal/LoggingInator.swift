@@ -10,8 +10,12 @@ import Foundation
 /// Helper structure to record specified events to a log file
 struct LoggingInator {
     
+    // MARK: Variable
+    
     /// The absolute path of the generated log file
     static let logFile = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("shaker-runtime.log", conformingTo: .log)
+    
+    // MARK: Logging Options
     
     /// Various phases Shaker goes through, when events may be logged
     enum AppPhase {
@@ -61,6 +65,8 @@ struct LoggingInator {
         
     }
     
+    // MARK: Function
+    
     /// Generate and write an event to the predetermined log file
     /// - Parameters:
     ///   - phase: The phase the app is currently in when the event occurred
@@ -85,5 +91,4 @@ struct LoggingInator {
         }
     }
     
-    // TODO: Modify to have a single .log call, one that defines the options for a method, and requires a call for something like .didFinish...?
 }

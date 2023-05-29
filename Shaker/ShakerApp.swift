@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct ShakerApp: App {
+    
     @Environment(\.scenePhase) private var scenePhase
     
     let authInator = AuthenticationInator.shared
@@ -17,7 +18,10 @@ struct ShakerApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environment(\.managedObjectContext, containerInator.container.viewContext)
+                .environment(\.managedObjectContext,
+                              AuthenticationInator.isSwiftPreview
+                              ? ContainerInator.preview.container.viewContext
+                              : containerInator.container.viewContext)
                 .environmentObject(authInator)
                 .onAppear {
                     LoggingInator.log(.setup, .app, .info, "Shaker has finished launching, and the WindowGroup is now presenting content")

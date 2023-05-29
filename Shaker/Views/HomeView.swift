@@ -51,25 +51,6 @@ struct HomeView: View {
                     Section {
                         ForEach(credentials) { credential in
                             CredentialRowItem(item: credential)
-                            .contextMenu {
-                                if !authInator.needsAuthentication {
-                                    Button(role: .none) {
-                                        credential.isPinned.toggle()
-                                        ContainerInator.shared.save()
-                                    } label: {
-                                        credential.isPinned ? Label("Un-pin", systemImage: "pin.slash.fill") : Label("Pin", systemImage: "pin.fill")
-                                    }
-                                    Divider()
-                                    Button(role: .destructive) {
-                                        moc.delete(credential)
-                                        ContainerInator.shared.save()
-                                    } label: {
-                                        Label("Delete", systemImage: "trash.fill")
-                                    }
-                                }
-                            } preview: {
-                                DetailView(selectedCredential: credential)
-                            }
                         }
                         .onDelete(perform: removeCredentials)
                         .deleteDisabled(authInator.needsAuthentication)
@@ -121,6 +102,7 @@ struct HomeView: View {
 }
 
 struct HomeView_Previews: PreviewProvider {
+    
     static var previews: some View {
         HomeView()
             .environmentObject(AuthenticationInator.shared)
